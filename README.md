@@ -1,1 +1,1 @@
-# Eric's an attack turn based game 
+# An attack turn based game 
