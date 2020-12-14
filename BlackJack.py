@@ -142,17 +142,18 @@ class champion:
 
 if __name__ == '__main__':
     #Available Champions 
-    Heilos = champion('Helios, Titan personification of the Sun, drives his chariot across the sky.', 'Fire', ['Metorstrike', 'Heat Wave', 'Blast Burn', 'Fire Punch'], {'ATTACK':12, 'DEFENSE': 8})
-    Hephaestus = champion('Hephaestus, god of blacksmiths, crafting, fire, and volcanoes.', 'Fire', ['Phen', 'Bubblebeam', 'Hydro Pump', 'Surf'],{'ATTACK': 10, 'DEFENSE':10})
+    Heilos = champion('Helios', 'Fire', ['Metorstrike', 'Heat Wave', 'Blast Burn', 'Fire Punch'], {'ATTACK':1800, 'DEFENSE': 1200})
+    Hephaestus = champion('Hephaestus', 'Fire', ['Phen', 'Bubblebeam', 'Hydro Pump', 'Surf'],{'ATTACK': 900, 'DEFENSE':1300})
     Artemis = champion('Artemis ', 'Earth', ['Vine Wip', 'Razor Leaf', 'Earthquake', 'Frenzy Plant'],{'ATTACK':8, 'DEFENSE':12})
     Gaia  = champion('Gaia', 'Earth', ['Ember', 'Scratch', 'Tackle', 'Fire Punch'],{'ATTACK':1000, 'DEFENSE':1500})
-   Poseidon  = champion('P', 'Earth', ['Ember', 'Scratch', 'Tackle', 'Fire Punch'],{'ATTACK':1200, 'DEFENSE':800})
+   Poseidon  = champion('P', 'Earth', ['Ember', 'Scratch', 'Tackle', 'Fire Punch'],{'ATTACK':1200, 'DEFENSE':1100})
+   Poseidon  = champion('P', 'Earth', ['Ember', 'Scratch', 'Tackle', 'Fire Punch'],{'ATTACK':1200, 'DEFENSE':1100})
 
 
 
     Charizard.fight(Squirtle) # Get them to fight
 
-list_Champions = ["Helios, Titan personification of the Sun, drives his chariot across the sky.'", "Hephaestus, god of blacksmiths, crafting, fire, and volcanoes.", 'Artemis, Greek goddess of the hunt, the wilderness, wild animals, the Moon and chastity ', "Poseidon, god of the sea (and of water generally), earthquakes, and horses. "," "]
+list_Champions = ["Helios, Titan personification of the Sun, drives his chariot across the sky.'", "Hephaestus, god of blacksmiths, crafting, fire, and volcanoes.", 'Artemis, Greek goddess of the hunt, the wilderness, wild animals, the Moon and chastity ', "Poseidon, god of the sea (and of water generally), earthquakes, and horses. ","Gaia,  "]
 print("Welcome to the Battle of the gods, choose your Champion ")
 Champion_1 = input("please enter choose champion #1: ", )
 Champion_2 = input("Choose champion #2": )
