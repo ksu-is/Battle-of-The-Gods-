@@ -1,10 +1,10 @@
-# Start Project check - done
-# DO the ASCII for Cards - started
-# Write the Code for the concept of the game - started
-# Finish the Coding 
-# Run Project 
-# fix errors 
-# complete project 
-# Make Presentation 
-# Done 
+# Start Project check - complete
+# Write the Code for the concept of the game - uncomplete
+# Powerpoint slide - complete
+# Finish the Coding - uncomplete
+# Run Project - uncomplete
+# fix errors - uncomplete
+# complete project - uncomplete
+# Make Presentation - uncomplete
+
 
