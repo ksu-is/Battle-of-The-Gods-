@@ -1,2 +1,1 @@
-# Eric's blackjack game 
-Casino Card game 
+# Eric's an attack turn based game 
