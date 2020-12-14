@@ -5,7 +5,7 @@ import sys
 
 # Delay printing
 
-def delay_print(s):
+def delay_print(s): # Gives the fell of playing on a oldschool gaming system like a nintendo
     # print one character at a time
     # https://stackoverflow.com/questions/9246076/how-to-print-one-character-at-a-time-on-one-line
     for c in s:
@@ -14,124 +14,126 @@ def delay_print(s):
         time.sleep(0.05)
 
 # Create the class
-class champion:
-    def __init__(self, name, types, moves, EVs, health='==================='):
+class champ:
+    def __init__(champ1, name, types, moves, EVs, health='==================='):
         # save variables as attributes
-        self.name = name
-        self.types = types
-        self.moves = moves
-        self.attack = EVs['ATTACK']
-        self.defense = EVs['DEFENSE']
-        self.health = health
-        self.bars = 20 # Amount of health bars
+        champ1.name = name
+        champ1.types = types
+        champ1.moves = moves
+        champ1.attack = EVs['ATTACK']
+        champ1.defense = EVs['DEFENSE']
+        champ1.health = health
+        champ1.bars = 20 # Amount of health bars
 
 
-    def fight(self, champion2):
-        # Allow twochampion to fight each other
+    def fight(champ1, champ2):
+        # Allow two champ to fight each other
 
         # Print fight information
-        print("----championE BATTLE-----")
-        print(f"\n{self.name}")
-        print("TYPE/", self.types)
-        print("ATTACK/", self.attack)
-        print("DEFENSE/", self.defense)
-        print("LVL/", 3*(1+np.mean([self.attack,self.defense])))
+        print("-----BATTLE-----")
+        print(f"\n{champ1.name}")
+        print("TYPE/", champ1.types)
+        print("ATTACK/", champ1.attack)
+        print("DEFENSE/", champ1.defense)
+        print("LVL/", 10*(1+np.mean([champ1.attack,champ1.defense])))
         print("\nVS")
-        print(f"\n{champion2.name}")
-        print("TYPE/", champion2.types)
-        print("ATTACK/", champion2.attack)
-        print("DEFENSE/", champion2.defense)
-        print("LVL/", 3*(1+np.mean([champion2.attack,champion2.defense])))
+        print(f"\n{champ2.name}")
+        print("TYPE/", champ2.types)
+        print("ATTACK/", champ2.attack)
+        print("DEFENSE/", champ2.defense)
+        print("LVL/", 10*(1+np.mean([champ2.attack,champ2.defense])))
 
         time.sleep(2)
 
         # Consider type advantages
         version = ['Fire', 'Water', 'Earth']
-        for i,k in enumerate(version):
-            if self.types == k:
-                # Both are same type
-                if champion2.types == k:
-                    string_1_attack = '\nIts not very effective...'
-                    string_2_attack = '\nIts not very effective...'
+        for i,k in enumerate(version): # enumerate() to get a counter and the value from the iterable at the same time!
+            if champ1.types == k:
+                # Both are same type example Fire vs Fire 
+                if champ2.types == k:
+                    string_1_attack = '\nIts not very effective...\n'
+                    string_2_attack = '\nIts not very effective...\n'
 
-                # champion2 is STRONG
-                if champion2.types == version[(i+1)%3]:
-                    champion2.attack *= 2
-                    champion2.defense *= 2
-                    self.attack /= 2
-                    self.defense /= 2
-                    string_1_attack = '\nIts not very effective...'
-                    string_2_attack = '\nIts super effective!'
+                # champ2 is STRONG
+                if champ2.types == version[(i+1)%3]:
+                    # Ex: Water attacks fire or fire attacks earth 
+                    champ2.attack *= 2
+                    champ2.defense *= 2
+                    champ1.attack /= 2
+                    champ1.defense /= 2
+                    string_1_attack = '\nIts not very effective...\n'
+                    string_2_attack = '\nIts super effective!\n'
 
-                # champion2 is WEAK
-                if champion2.types == version[(i+2)%3]:
-                    self.attack *= 2
-                    self.defense *= 2
-                    champion2.attack /= 2
-                    champion2.defense /= 2
-                    string_1_attack = '\nIts super effective!'
-                    string_2_attack = '\nIts not very effective...'
+                # champ2 is WEAK
+                if champ2.types == version[(i+2)%3]:
+                    # fire attacks water 
+                    champ1.attack *= 2
+                    champ1.defense *= 2
+                    champ2.attack /= 2
+                    champ2.defense /= 2
+                    string_1_attack = '\nIts super effective!\n'
+                    string_2_attack = '\nIts not very effective...\n'
 
 
-        # Now for the actual fighting...
-        # Continue whilechampion still have health
-        while (self.bars > 0) and (champion2.bars > 0):
-            # Print the health of each champion
-            print(f"\n{self.name}\t\tHLTH\t{self.health}")
-            print(f"{champion2.name}\t\tHLTH\t{champion2.health}\n")
+        # actual fighting...
+        # Continue while champ still have health
+        while (champ1.bars > 0) and (champ2.bars > 0):
+            # Print the health of each champ
+            print(f"\n{champ1.name}\nHLTH\t{champ1.health}")
+            print(f"\n{champ2.name}\nHLTH\t{champ2.health}\n")
 
-            print(f"Go {self.name}!")
-            for i, x in enumerate(self.moves):
+            print(f"You have been summoned {champ1.name}!")
+            for i, x in enumerate(champ1.moves):
                 print(f"{i+1}.", x)
             index = int(input('Pick a move: '))
-            delay_print(f"\n{self.name} used {self.moves[index-1]}!")
+            delay_print(f"\n{champ1.name} used {champ1.moves[index-1]}!")
             time.sleep(1)
             delay_print(string_1_attack)
 
             # Determine damage
-            champion2.bars -= self.attack
-            champion2.health = ""
+            champ2.bars -= champ1.attack
+            champ2.health = ""
 
             # Add back bars plus defense boost
-            for j in range(int(champion2.bars+.1*champion2.defense)):
-                champion2.health += "="
+            for j in range(int(champ2.bars+.1*champ2.defense)):
+                champ2.health += "="
 
             time.sleep(1)
-            print(f"\n{self.name}\t\tHLTH\t{self.health}")
-            print(f"{champion2.name}\t\tHLTH\t{champion2.health}\n")
+            print(f"\n{champ1.name}\nHLTH\t{champ1.health}")
+            print(f"\n{champ2.name}\nHLTH\t{champ2.health}\n")
             time.sleep(.5)
 
-            # Check to see if champion has been defeated
-            if champion2.bars <= 0:
-                delay_print("\n..." + champion2.name + ' Your champion has been DEFEATED! ')
+            # Check to see if champ fainted
+            if champ1.bars <= 0:
+                delay_print("\n..." + champ1.name + ' defeated.')
                 break
 
-            # champion2s turn
+            # champ2s turn
 
-            print(f"Go {champion2.name}!")
-            for i, x in enumerate(champion2.moves):
+            print(f"You have been summoned! {champ2.name}!")
+            for i, x in enumerate(champ2.moves):
                 print(f"{i+1}.", x)
-            index = int(input('Choose your attack!  '))
-            delay_print(f"\n{champion2.name} used {champion2.moves[index-1]}!")
+            index = int(input('Pick a move: '))
+            delay_print(f"\n{champ2.name} used {champ2.moves[index-1]}!")
             time.sleep(1)
             delay_print(string_2_attack)
 
             # Determine damage
-            self.bars -= champion2.attack
-            self.health = ""
+            champ1.bars -= champ2.attack
+            champ1.health = ""
 
             # Add back bars plus defense boost
-            for j in range(int(self.bars+.1*self.defense)):
-                self.health += "="
+            for j in range(int(champ1.bars+.1*champ1.defense)):
+                champ1.health += "="
 
             time.sleep(1)
-            print(f"{self.name}\t\tHLTH\t{self.health}")
-            print(f"{champion2.name}\t\tHLTH\t{champion2.health}\n")
+            print(f"{champ1.name}\nHLTH\t{champ1.health}")
+            print(f"{champ2.name}\nHLTH\t{champ2.health}\n")
             time.sleep(.5)
 
-            # Check to see ifchampion fainted
-            if self.bars <= 0:
-                delay_print("\n..." + self.name + 'Your Champion has been DEFEATED!')
+            # Check to see if champ fainted
+            if champ2.bars <= 0:
+                delay_print("\n..." + champ2.name + ' defeated.')
                 break
 
 
@@ -141,21 +143,16 @@ class champion:
 
 
 if __name__ == '__main__':
-    #Available Champions 
-    Heilos = champion('Helios', 'Fire', ['Metorstrike', 'Heat Wave', 'Blast Burn', 'Fire Punch'], {'ATTACK':1800, 'DEFENSE': 1200})
-    Hephaestus = champion('Hephaestus', 'Fire', ['Phen', 'Bubblebeam', 'Hydro Pump', 'Surf'],{'ATTACK': 900, 'DEFENSE':1300})
-    Artemis = champion('Artemis ', 'Earth', ['Vine Wip', 'Razor Leaf', 'Earthquake', 'Frenzy Plant'],{'ATTACK':8, 'DEFENSE':12})
-    Gaia  = champion('Gaia', 'Earth', ['Ember', 'Scratch', 'Tackle', 'Fire Punch'],{'ATTACK':1000, 'DEFENSE':1500})
-   Poseidon  = champion('P', 'Earth', ['Ember', 'Scratch', 'Tackle', 'Fire Punch'],{'ATTACK':1200, 'DEFENSE':1100})
-   Amphitrite  = champion('P', 'Earth', ['Ember', 'Scratch', 'Tackle', 'Fire Punch'],{'ATTACK':1200, 'DEFENSE':1100})
+    #Create champ
+    Helios = champ('Helios, god of the sun', 'Fire', ['Sun Strike', 'Heat Wave', 'Blast Burn', 'Fire Punch'], {'ATTACK':12, 'DEFENSE': 8})
+    Hephaestus = champ('Hephaestus, god of blacksmiths, crafting, fire, and volcanoes.', 'Fire', ['Fire Breath', 'Axe Strike', 'Metor Strike', 'Heat Stroke'],{'ATTACK': 10, 'DEFENSE':10})
+    Artemis = champ('Artemis, greek goddess of the hunt, the wilderness, wild animals, the Moon and chastity', 'Earth', ['Vine Wip', 'Arrow Strike', 'Sneak attack', 'Frenzy'],{'ATTACK':8, 'DEFENSE':12})
+
+    Gia = champ('Gaia, titan personification of the Earth and one of the Greek primordial deities. Gaia is the ancestral mother of all life.', 'Earth', ['Earthquake', 'Tornado', 'Landslide', 'Quicksand'],{'ATTACK':10, 'DEFENSE':12})
+    Poseidon= champ('Poseidon, god of the sea , earthquakes, and horses.', 'Water', ['Trident Slash', 'Earthquake', 'Headbutt', 'Tsunami'],{'ATTACK': 9, 'DEFENSE':12})
+    Amhitrite = champ('Amhitrite, goddess of the sea, wife of the god Poseidon', 'Water', ['Trident Slash', 'Hurricane', 'Whale Punch', 'Shark attack'],{'ATTACK':10, 'DEFENSE':10})
 
 
 
-    Charizard.fight(Squirtle) # Get them to fight
+    Gia.fight(Amhitrite) # Get them to fight
 
-list_Champions = ["Helios, Titan personification of the Sun, drives his chariot across the sky.'", "Hephaestus, god of blacksmiths, crafting, fire, and volcanoes.", 'Artemis, Greek goddess of the hunt, the wilderness, wild animals, the Moon and chastity ', "Poseidon, god of the sea (and of water generally), earthquakes, and horses. ","Gaia,  "]
-print("Welcome to the Battle of the gods, choose your Champion ")
-Champion_1 = input("please enter choose champion #1: ", )
-Champion_2 = input("Choose champion #2": )
-
-Charizard.fight(Squirtle) # Let the  fight begin
