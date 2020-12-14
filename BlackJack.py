@@ -147,7 +147,7 @@ if __name__ == '__main__':
     Artemis = champion('Artemis ', 'Earth', ['Vine Wip', 'Razor Leaf', 'Earthquake', 'Frenzy Plant'],{'ATTACK':8, 'DEFENSE':12})
     Gaia  = champion('Gaia', 'Earth', ['Ember', 'Scratch', 'Tackle', 'Fire Punch'],{'ATTACK':1000, 'DEFENSE':1500})
    Poseidon  = champion('P', 'Earth', ['Ember', 'Scratch', 'Tackle', 'Fire Punch'],{'ATTACK':1200, 'DEFENSE':1100})
-   Poseidon  = champion('P', 'Earth', ['Ember', 'Scratch', 'Tackle', 'Fire Punch'],{'ATTACK':1200, 'DEFENSE':1100})
+   Amphitrite  = champion('P', 'Earth', ['Ember', 'Scratch', 'Tackle', 'Fire Punch'],{'ATTACK':1200, 'DEFENSE':1100})
 
 
 
